@@ -2,7 +2,7 @@
     "name": "kodi-skin-reloader",
     "displayName": "Kodi Skin Reloader",
     "description": "Reload Kodi's skin when a file is saved.",
-    "version": "0.1.0",
+    "version": "0.2.2",
     "publisher": "roidy",
     "engines": {
         "vscode": "^1.19.0"
@@ -15,6 +15,7 @@
         "type": "git",
         "url": "https://github.com/roidy/kodi-skin-reloader.git"
     },
+    "homepage": "https://github.com/roidy/kodi-skin-reloader/blob/master/README.md",
     "activationEvents": [
         "*"
     ],

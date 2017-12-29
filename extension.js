@@ -15,7 +15,7 @@ function activate(context) {
   context.subscriptions.push(disposable);
 
   disposable = vscode.commands.registerCommand('extension.disableKodiSkinReloader', function () {
-    extension.isEnabled = fasle;
+    extension.isEnabled = false;
   });
   context.subscriptions.push(disposable);
 
