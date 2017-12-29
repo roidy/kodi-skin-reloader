@@ -20,7 +20,6 @@ function activate(context) {
   context.subscriptions.push(disposable);
 
   vscode.workspace.onDidSaveTextDocument((document) => {
-    vscode.window.showInformationMessage("doin the doings");
     extension.reloadSkin();
   });
 }
