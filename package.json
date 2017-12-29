@@ -1,0 +1,57 @@
+{
+  "name": "kodi-skin-reloader",
+  "displayName": "Kodi Skin Reloader",
+  "description": "Reload Kodi's skin when a file is saved.",
+  "version": "0.0.1",
+  "publisher": "roidy",
+  "engines": {
+    "vscode": "^1.19.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.enableKodiSkinReloader",
+        "title": "Kodi Skin Reloader: enable"
+      },
+      {
+        "command": "extension.disableKodiSkinReloader",
+        "title": "Kodi Skin Reloader: disable"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Kodi Skin Reloader configuration",
+      "properties": {
+        "kodiSkinReloader.ip": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "Kodi's IP address."
+        },
+        "kodiSkinReloader.port": {
+          "type": "string",
+          "default": "8080",
+          "description": "Kodi's port value."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.6",
+    "eslint": "^4.6.1",
+    "@types/node": "^7.0.43",
+    "@types/mocha": "^2.2.42"
+  }
+}
