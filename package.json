@@ -44,6 +44,16 @@
                     "type": "string",
                     "default": "8080",
                     "description": "Kodi's port value."
+                },
+                "kodiSkinReloader.userName": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Kodi's web server username."
+                },
+                "kodiSkinReloader.passWord": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Kodi's web server password.."
                 }
             }
         }

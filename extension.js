@@ -44,12 +44,25 @@ class OnSaveExtension {
     let config = vscode.workspace.getConfiguration('kodiSkinReloader');
     this._ip = config.get('ip');
     this._port = config.get('port');
+    this._userName = config.get('userName');
+    this._passWord = config.get('passWord');
   }
 
   reloadSkin() {
 
     if (!this.isEnabled) { return; }
-    let url = `http://${this._ip}:${this._port}/jsonrpc`;
+    let auth = '';
+    if (this._Username !== '') {
+      auth = auth + this._userName;
+    }
+    if (this._passWord !== '') {
+      auth = auth + ':' + this._passWord;
+    }
+    if (auth !== '') {
+      auth = auth + '@';
+    }
+
+    let url = `http://${auth}${this._ip}:${this._port}/jsonrpc`;
     fetch(url,
       {
         headers: {
@@ -59,7 +72,12 @@ class OnSaveExtension {
         method: "POST",
         body: JSON.stringify({ "jsonrpc": "2.0", "id": 1, "method": "Addons.ExecuteAddon", "params": { "addonid": "script.toolbox", "params": { "info": "builtin", "id": "ReloadSkin()" } } })
       })
-      .catch(function (res) { vscode.window.showErrorMessage("Unable to refresh skin"); })
+      .then((res) => { 
+        if (res.status == 401) {
+          vscode.window.showInformationMessage("Invalid Kodi Username or Password."); 
+      }
+      })
+      .catch((res) => { vscode.window.showErrorMessage("Unable to refresh skin"); })
   }
 
 
