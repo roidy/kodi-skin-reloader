@@ -16,5 +16,6 @@ This extension contributes the following settings:
 
 * `kodiSkinReloader.ip`: the ip address of the Kodi client you want to refresh
 * `kodiSkinReloader.port`: the port of the Kodi client you want to refresh
-
+* `kodiSkinReloader.userName`: the username of Kodi's web server
+* `kodiSkinReloader.passWord`: the password of Kodi's web server
 
